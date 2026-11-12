@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ken's Anime Book Store</title>
+<style>
+  /* Reset and Full Page Styling */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #0b0b0e;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* Video Background Wrapper */
+  .video-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+  }
+
+  .video-bg-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Dark Overlay for Readability */
+  .bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 11, 14, 0.85); /* Adjust opacity here if needed (0.85 is dark and readable) */
+    z-index: -1;
+  }
+
+  /* Content Wrapper */
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 50px;
+  }
+
+  /* Glassmorphism styling for cards and containers */
+  .glass-card {
+    background: rgba(20, 20, 25, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* Navigation Links */
+  .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: #ff4500;
+  }
+</style>
+</head>
+<body>
+
+<!-- Video Background -->
+<div class="video-bg-container">
+  <video autoplay muted loop playsinline>
+    <video src="video/anime.mp4" controls">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<div class="bg-overlay"></div>
+
+<!-- Main Page Content -->
+<div class="content-wrapper">
+
+  <div style="text-align:center; margin-top:40px;">
+    <img style="width: 25%; border-radius: 10px;" src="image11.jpg">
+  </div>
+
+  <div class="nav-links" style="text-align:center; margin-top:40px;">
+    <a style="padding-right: 20px; font-size: 18px;" href="index.html">Home</a>
+    <a style="padding-right: 20px; font-size: 18px;" href="about.html">About</a>
+    <a style="padding-right: 20px; font-size: 18px;" href="services.html">Services</a>
+  </div>
+
+  <h1 style="font-size:50px; text-align:center; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">KEN'S ANIME BOOK STORE</h1>
+
+  <p style="font-size:20px; text-align:center; line-height: 30px; margin-bottom:50px; max-width: 900px; margin-left: auto; margin-right: auto; padding: 0 20px;">
+    Welcome to your main character era: step inside, grab a volume, and lose yourself in the stories your bookshelf has been waiting for. <br>
+    Whether you’re diving into an epic new adventure arc or winding down with a cozy slice-of-life favorite, <br>
+    we bring the best manga and light novels straight from the panels to your front door—just be warned, <br>
+    side effects may include accidental all-nighters and an instantly growing collection.
+  </p>
+
+  <div style="text-align:center;">
+    <a style="font-size:20px; background-color: red; padding: 15px 35px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; box-shadow: 0 4px 15px rgba(255,0,0,0.4);" href="https://www.bilibili.tv/en/anime">Watch on Bilibili</a>
+  </div>
+
+  <hr style="margin: 50px auto; width: 80%; border-color: rgba(255,255,255,0.2);">
+
+  <h1 style="font-size:50px; text-align:center; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">Anime Choices</h1>
+
+  <!-- Product Grid -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1200px; margin: auto; text-align: center; padding: 0 20px;">
+
+    <!-- Book 1 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image01.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 1</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$12.99</p>
+      <button onclick="openBookModal('Manga Volume 1', '$12.99', 'image01.jpg', 'An action-packed Shonen adventure following a young hero determined to surpass every rival and claim the ultimate title.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image02.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 2</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$14.99</p>
+      <button onclick="openBookModal('Manga Volume 2', '$14.99', 'image02.jpg', 'Transported to a magical realm with nothing but a mysterious skill, our protagonist must outsmart ancient monsters and build a new life.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image03.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 3</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$11.99</p>
+      <button onclick="openBookModal('Manga Volume 3', '$11.99', 'image03.jpg', 'A heartwarming slice-of-life romance set in a quiet coastal town where two classmates share afternoon tea and unspoken feelings.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 4 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image04.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 4</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$13.50</p>
+      <button onclick="openBookModal('Manga Volume 4', '$13.50', 'image04.jpg', 'A dark psychological thriller where a detective races against time to uncover the truth behind a string of supernatural occurrences.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image05.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 5</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$15.99</p>
+      <button onclick="openBookModal('Manga Volume 5', '$15.99', 'image05.jpg', 'Set in a neon-lit cyberpunk metropolis, rogue hackers team up to take down a corrupt mega-corporation controlling the city.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 6 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image06.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 6</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$12.99</p>
+      <button onclick="openBookModal('Manga Volume 6', '$12.99', 'image06.jpg', 'The original light novel volume packed with rich worldbuilding, exclusive illustrations, and unedited story arcs.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 7 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image07.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 7</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$16.99</p>
+      <button onclick="openBookModal('Manga Volume 7', '$16.99', 'image07.jpg', 'Collector edition volume featuring intense swordsmanship, ancient clans, and an unforgettable tournament arc.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 8 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image08.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 8</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$10.99</p>
+      <button onclick="openBookModal('Manga Volume 8', '$10.99', 'image08.jpg', 'A hilarious high school comedy packed with chaotic club activities, eccentric friends, and nonstop laughs.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+    <!-- Book 9 -->
+    <div class="glass-card" style="width: 30%; min-width: 250px; margin-bottom: 10px;">
+      <img style="width: 100%; border-radius: 6px;" src="image09.jpg">
+      <h3 style="color: #fff; margin: 15px 0 5px 0;">Manga Volume 9</h3>
+      <p style="font-size: 22px; font-weight: bold; color: #ffcc00; margin: 5px 0 15px 0;">$14.50</p>
+      <button onclick="openBookModal('Manga Volume 9', '$14.50', 'image09.jpg', 'An emotional fantasy journey across sky islands as a young navigator searches for a legendary lost library.')" style="background-color: #ff4500; color: white; padding: 10px 25px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Buy Now</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Book Description Modal (Pop-up) -->
+<div id="bookModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+  <div style="background-color: #1a1a24; color: #ffffff; padding: 30px; border-radius: 12px; max-width: 450px; width: 90%; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15);">
+    
+    <!-- Close Button -->
+    <span onclick="closeBookModal()" style="position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; color: #aaa;">&times;</span>
+    
+    <img id="modalImg" src="" style="width: 45%; border-radius: 6px; margin-bottom: 15px;">
+    <h2 id="modalTitle" style="margin: 10px 0;"></h2>
+    <p id="modalPrice" style="font-size: 24px; font-weight: bold; color: #ffcc00; margin: 10px 0;"></p>
+    <p id="modalDesc" style="font-size: 16px; line-height: 1.5; color: #ccc; margin-bottom: 20px;"></p>
+    
+    <button onclick="alert('Thank you! Your order has been placed.'); closeBookModal();" style="background-color: #28a745; color: white; padding: 12px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">Confirm Purchase</button>
+  </div>
+</div>
+
+<!-- JavaScript to Handle the Pop-up -->
+<script>
+  function openBookModal(title, price, imageSrc, description) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalPrice').innerText = price;
+    document.getElementById('modalImg').src = imageSrc;
+    document.getElementById('modalDesc').innerText = description;
+    document.getElementById('bookModal').style.display = 'flex';
+  }
+
+  function closeBookModal() {
+    document.getElementById('bookModal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    var modal = document.getElementById('bookModal');
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
